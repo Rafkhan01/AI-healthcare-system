@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 st.title(" AI Healthcare Decision Support System")
-st.markdown("### Symptom-based Disease Prediction, Severity Analysis & Medicine Recommendation")
+st.markdown("Symptom-based Disease Prediction, Severity Analysis & Medicine Recommendation")
 
 tabs = st.tabs([
     " Diagnosis",
@@ -25,7 +25,7 @@ data = pd.read_csv("dataset.csv")
 symptom_cols = [col for col in data.columns if col != "Disease"]
 ss = pd.read_csv("Symptom-severity.csv")
 severity_dict = dict(zip(ss['Symptom'].str.lower(), ss['weight']))
-med_df = pd.read_csv("medicine_dataset.csv")
+med_df = pd.read_csv("medicine_filtered.csv")
 med_df['use_combined'] = med_df[['use0','use1','use2','use3','use4']].astype(str).agg(' '.join, axis=1).str.lower()
 sd=pd.read_csv("symptom_Description.csv")
 sp= pd.read_csv("symptom_precaution.csv")
@@ -148,3 +148,4 @@ with tabs[3]:
                 st.write("•", row[f'Precaution_{i}'].values[0])
         else:
             st.warning("Precaution data not found.")
+
