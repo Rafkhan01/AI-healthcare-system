@@ -6,3 +6,6 @@ Developed a machine learning powered clinical decision support system that:
 - Provides medical descriptions and safety precautions
 - Recommends appropriate medicines using a real pharmaceutical dataset
 - Implemented with Python, Pandas, Scikit-learn, Streamlit
+
+---
+Live Demo : 'https://ai-healthcare-system-jaqgrqbayym7wsnbmvr4kf.streamlit.app/'
