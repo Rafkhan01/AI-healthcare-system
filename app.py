@@ -26,7 +26,7 @@ symptom_cols = [col for col in data.columns if col != "Disease"]
 ss = pd.read_csv("Symptom-severity.csv")
 severity_dict = dict(zip(ss['Symptom'].str.lower(), ss['weight']))
 med_df = pd.read_csv("medicine_filtered.csv")
-med_df['use_combined'] = med_df[['use0','use1','use2','use3','use4']].astype(str).agg(' '.join, axis=1).str.lower()
+med_df['use_combined'] = med_df[['use0','use1','use2','use3','use4']].astype(str).apply(lambda x: ' '.join(x), axis=1).str.lower()
 sd=pd.read_csv("symptom_Description.csv")
 sp= pd.read_csv("symptom_precaution.csv")
 # Collecting all unique symptoms
